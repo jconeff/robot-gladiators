@@ -2,16 +2,16 @@ var fight = function(enemy) {
   
   while (playerInfo.health > 0 && enemy.health > 0) {
     // ask player if they'd liked to fight or run
-    var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+    var promptFight = window.prompt('Would you like to ATTACK or RUN from battle? Enter "ATTACK" or "RUN" to choose.');
 
     // if player picks "skip" confirm and then stop the loop
-    if (promptFight === "skip" || promptFight === "SKIP") {
+    if (promptFight === "run" || promptFight === "RUN") {
       // confirm player wants to skip
       var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
       // if yes (true), leave fight
       if (confirmSkip) {
-        window.alert(playerInfo.name + ' has decided to skip this fight. Goodbye!');
+        window.alert(playerInfo.name + ' has decided to run from battle. Goodbye!');
         // subtract money from playerMoney for skipping
         playerInfo.money = Math.max(0, playerInfo.money - 10);
         console.log("playerInfo.money", playerInfo.money)
@@ -30,7 +30,7 @@ enemy.health = Math.max(0, enemy.health - damage);
 
     // check enemy's health
     if (enemy.health <= 0) {
-      window.alert(enemy.name + ' has died!');
+      window.alert(enemy.name + ' has fainted!');
 
       // award player money for winning
       playerInfo.money = playerInfo.money + 20;
@@ -51,7 +51,7 @@ enemy.health = Math.max(0, enemy.health - damage);
 
     // check player's health
     if (playerInfo.health <= 0) {
-      window.alert(playerInfo.name + ' has died!');
+      window.alert(playerInfo.name + ' has fainted!');
       // leave while() loop if player is dead
       break;
     } else {
